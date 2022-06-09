@@ -9,13 +9,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         } else {
             const data = await response.json();
             const locationTag = document.getElementById('location');
-            console.log(data)
+
             for (let loct of data.locations) {
                 const secondOption = document.createElement('option');
                 secondOption.value = loct.id;
                 secondOption.innerHTML = loct.name;
                 locationTag.appendChild(secondOption)
-                console.log("STUFF:", loct)
+
             }
             const formTag = document.getElementById('create-conference-form')
             formTag.addEventListener('submit', async event => {
@@ -31,9 +31,9 @@ window.addEventListener('DOMContentLoaded', async () => {
                     'Content-Type': 'application/json',
                   },
                 };
-                console.log(json)
+                
                 const response = await fetch(locationUrl, fetchConfig);
-                console.log("THINGS12:", response)
+                
                 if (response.ok) {
                   formTag.reset();
                   const newLocation = await response.json(); }
@@ -42,3 +42,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         console.error('error', e);
     }
 });
+
+
+
+
+

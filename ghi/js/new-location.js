@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             option.innerHTML = state.name
     // Append the option element as a child of the select tag
             selectTag.appendChild(option)
-            console.log()
+            
     }
     
     const formTag = document.getElementById('create-location-form');
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         headers: {
             'Content-Type': 'application/json',
         },
-};      console.log(json)
+};      
        const response = await fetch(locationUrl, fetchConfig);
 
          if (response.ok) {
