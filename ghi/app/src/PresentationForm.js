@@ -35,10 +35,17 @@ class PresentationForm extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const data = { ...this.state };
-    data.conference = data.conference;
-    delete data.conference;
+    data.presenter_email = data.presenterEmail;
+    data.presenter_name = data.presenterName;
+    data.company_name = data.companyName;
+    delete data.conferences;
+    delete data.presenterEmail;
+    delete data.presenterName;
+    delete data.companyName;
 
-    const locationUrl = "http://localhost:8000/api/presentations/";
+    const conferenceId = data.conference;
+
+    const locationUrl = `http://localhost:8000${conferenceId}presentations/`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
@@ -46,10 +53,11 @@ class PresentationForm extends React.Component {
         "Content-Type": "application/json",
       },
     };
+    console.log(data);
     const response = await fetch(locationUrl, fetchConfig);
     if (response.ok) {
-      const newLocation = await response.json();
-      console.log(newLocation);
+      const newPresentation = await response.json();
+      console.log(newPresentation);
 
       const cleared = {
         presenterName: "",
