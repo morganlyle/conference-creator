@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', async () => {
       event.preventDefault();
       const formData = new FormData(formTag);
       const json = JSON.stringify(Object.fromEntries(formData));
-
       const attendeeUrl = 'http://localhost:8001/api/attendees/';
       const fetchConfig = {
         method: "post",
