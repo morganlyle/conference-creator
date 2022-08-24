@@ -99,7 +99,7 @@ class MainPage extends React.Component {
             alt=""
             width="600"
           />
-          <h1 className="display-5 fw-bold">Conference GO!</h1>
+          <h1 className="display-5 fw-bold">Conference Creator!</h1>
           <div className="col-lg-6 mx-auto">
             <p className="lead mb-4">
               The only resource you'll ever need to plan an run your in-person
